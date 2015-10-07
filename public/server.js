@@ -19,5 +19,5 @@ http.createServer(function(req, res) {
         res.write(object);
         res.end();
     });
-}).listen(port,'https://hkh0606.herokuapp.com');
+}).listen(port);
 console.log("server initialized");
