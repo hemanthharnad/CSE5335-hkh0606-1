@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>jsonp test</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(function() {
+            $('#search').click(function () {
+
+                $.ajax({
+                    type: 'GET',
+                    //contentType: 'application/json',--data sent to server,not needed
+                    crossDomain: 'true',
+                    dataType: 'json',
+                    url: 'http://localhost:3000'
+                }).done(function (data) {
+                    //alert(data.length);
+                    var temp = "<table border='2'><tr>";
+                    temp+="<tr><th>PLAYER NAME</th><th>GOALS</th></tr>";
+                    for (var i = 0; i < data.length; i++) {
+                        temp += "<tr><td>" + data[i].name + "</td><td>"+data[i].goals+"</td></tr>";
+                    }
+                    temp += "</tr></table>";
+                    console.log(temp);
+                    $('#display').append(temp);
+
+
+
+
+
+                });
+
+
+
+            });
+        });
+       /**
+        * Created by owner on 10/6/15.
+        */
+
+    </script>
+
+</head>
+<body>
+<div id="display"> <h2>Welcome to Soccer World</h2>
+    <br>
+<!--<table border='1' id="tableid"></table>-->
+
+<button type="button" autofocus id="search">TOP GOAL SCORERS </button>
+    <br>
+
+</div>
+
+</body>
+</html>
