@@ -19,5 +19,5 @@ http.createServer(function(req, res) {
         res.write(object);
         res.end();
     });
-}).listen(port);
+}).listen(port,"http://localhost");
 console.log("server initialized");
