@@ -4,7 +4,7 @@ var http = require('http'),
 
 
 var http = require('http');
-var port= Number(process.env.PORT || 5000)
+var port= Number(process.env.PORT || 3000)
 http.createServer(function(req, res) {
     //var variable= {"name":"apples","desc":"delicious"
     //}
@@ -19,5 +19,5 @@ http.createServer(function(req, res) {
         res.write(object);
         res.end();
     });
-}).listen(port);
+}).listen(port,'https://hkh0606.herokuapp.com');
 console.log("server initialized");
