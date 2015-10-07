@@ -25,13 +25,6 @@ var http = require("http");
 var fs = require("fs");
 
 
-function send404Response(response){
-    response.writeHead(404, {"Content-Type": "text/plain"});
-    response.write("Error 404 - Page not found");
-    response.end();
-}
-
-
 function onRequest(request, response) {
 
     if( request.method == 'GET' && request.url == '/' ){
@@ -39,7 +32,7 @@ function onRequest(request, response) {
         
         fs.createReadStream("./index.html").pipe(response);
     }else{
-        send404Response(response);
+        console.log("error");
     }
 
 }
